@@ -78,14 +78,15 @@ spl_autoload_register('chargerClasse');
 
  foreach ($perso as $key => $value) {
    # code...
-var_dump($perso);
+
 
   $personage = new Personnage($value);
+var_dump($personage);
 
 
+ echo $personage->nom(), ' a ', $personage->forcePerso(), ' de force, ',     $personage->degats(), ' de dégâts, ', $personage->experience(), ' d\'expérience et est au niveau ', $personage->niveau().'<br>';
 
- // echo $value['nom'], ' a ', $value['forcePerso'], ' de force, ', $value['degats'], ' de dégâts, ', $value['experience'], ' d\'expérience et est au niveau ', $value['niveau'];
- echo $personage->nom();
+
 }
 
 

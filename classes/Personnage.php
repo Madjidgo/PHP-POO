@@ -29,9 +29,11 @@ $this->hydrate( $donnees);
 
 }
 
-public function hydrate(array $donnees){
+public function hydrate(array $donnees)
+{
 
-foreach ($donnees as $key => $value) {
+foreach ($donnees as $key => $value)
+  {
   # code...
   // On récupère le nom du setter correspondant à l'attribut.
 
@@ -42,9 +44,9 @@ foreach ($donnees as $key => $value) {
     // new personne->setNom$nom
     $this->$method($value);
       // …
-
     }
-}
+
+  }
 }
 // Liste des getters
   public function id()
@@ -111,18 +113,24 @@ foreach ($donnees as $key => $value) {
   }
 
 
-  public function setForcePerso($forcePerso){
-  if(!is_int($forcePerso)){
-    echo'vérifier vos infos';
-  }
-    else if($forcePerso >=1 AND $forcePerso<=100){
+  public function setForcePerso($forcePerso)
+  {
+    $forcePerso =(int)$forcePerso;
+      if(!is_int($forcePerso)){
+        trigger_error('La force d\'un personnage doit être un nombre entier', E_USER_WARNING);
+
+      return;
+      }
+      else{
       $this->_forcePerso = $forcePerso;
     }
   }
 
-  public function setDegats($degats){
+  public function setDegats($degats)
+  {
     $degats = (int)$degats;
-    if($degats >=0 && $degats <=100){
+    if($degats >=0 && $degats <=100)
+    {
       $this->_degats= $degats;
     }
   }
@@ -138,7 +146,7 @@ foreach ($donnees as $key => $value) {
   public function setExperience($experience){
     $experience  = (int)$experience;
     if($experience >=1 && $experience <=100){
-      $this->_exeperience = $experience;
+      $this->_experience = $experience;
     }
   }
 
