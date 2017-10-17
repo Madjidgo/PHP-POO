@@ -74,20 +74,21 @@ spl_autoload_register('chargerClasse');
  }
 
  $request= $db->query('SELECT * FROM Personnage');
-  $perso= $request->fetchAll();
+  $perso= $request->fetchAll(PDO::FETCH_ASSOC);
+
  foreach ($perso as $key => $value) {
    # code...
+var_dump($perso);
 
- var_dump($perso);
+  $personage = new Personnage($value);
 
- echo $value['nom'], ' a ', $value['forcePerso'], ' de force, ', $value['degats'], ' de dégâts, ', $value['experience'], ' d\'expérience et est au niveau ', $value['niveau'];
+
+
+ // echo $value['nom'], ' a ', $value['forcePerso'], ' de force, ', $value['degats'], ' de dégâts, ', $value['experience'], ' d\'expérience et est au niveau ', $value['niveau'];
+ echo $personage->nom();
 }
 
 
-
 ?>
-
-
-
   </body>
 </html>

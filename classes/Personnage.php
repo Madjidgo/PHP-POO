@@ -22,14 +22,30 @@ class Personnage
 
 
 
-// public function __construct($db){
-// $this->_db = $db;
-// }
+public function __construct(array $donnees){
 
-public function hydrate(array $donnees){
-  
+$this->hydrate( $donnees);
+
+
 }
 
+public function hydrate(array $donnees){
+
+foreach ($donnees as $key => $value) {
+  # code...
+  // On récupère le nom du setter correspondant à l'attribut.
+
+     $method = 'set'.ucfirst($key);
+     if (method_exists($this, $method))
+
+    {
+    // new personne->setNom$nom
+    $this->$method($value);
+      // …
+
+    }
+}
+}
 // Liste des getters
   public function id()
 
@@ -96,7 +112,7 @@ public function hydrate(array $donnees){
 
 
   public function setForcePerso($forcePerso){
-  if(!is_int($id)){
+  if(!is_int($forcePerso)){
     echo'vérifier vos infos';
   }
     else if($forcePerso >=1 AND $forcePerso<=100){
@@ -111,7 +127,7 @@ public function hydrate(array $donnees){
     }
   }
 
-  public function setNiveau($_niveau){
+  public function setNiveau($niveau){
     $niveau = (int)$niveau;
 
     if($niveau >=1 && $niveau <=100){

@@ -10,12 +10,12 @@ class Formulaire{
 
   }
   public function setH($h1){
-     $this->_form .= '<h1>'.$h1.'</h1>';
+     $this->_form .= '<h1>' .$h1. '</h1>';
    }
 
   public function setTexte($titre,$name,$id,$label)
   {
-$this->_form.='<fieldset><legend> '.$titre. '</legend><input type="text" name="'.$name.'" id="'.$id.'"<label for="'.$label.'">"Veuillez saisir du texte" </label></fieldset>';
+    $this->_form.='<fieldset><legend> '.$titre. '</legend><input type="text" name="'.$name.'" id="'.$id.'"<label for="'.$label.'">"Veuillez saisir du texte" </label></fieldset>';
   }
 
   public function setSubmit($value){

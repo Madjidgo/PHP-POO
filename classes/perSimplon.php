@@ -11,15 +11,15 @@ class perSimplon{
     $this->setAdresse($adresse);
   }
 // getters
-  public function nom(){
+  public function getNom(){
     return $this->_nom;
   }
 
-  public function prenom(){
+  public function getPrenom(){
     return $this->_prenom;
   }
 
-  public function adresse(){
+  public function getAdresse(){
     return $this->_adresse;
   }
 
@@ -38,7 +38,7 @@ public function setAdresse($adresse){
 }
 
 function __destruct() {
-      "Destruction de " . $this->_nom . "\n" .
+  echo "Destruction de " . $this->_nom . "\n" .
                                   $this->_prenom . "\n" .
                                   $this->_adresse . "\n";
 
