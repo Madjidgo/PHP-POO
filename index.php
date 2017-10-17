@@ -59,6 +59,31 @@ spl_autoload_register('chargerClasse');
 // echo $form->getForm();
 
 
+// exercice Personnage
+
+ try {
+     $db = new PDO('mysql:host=localhost;dbname=PersonnageManager;charset=utf8', 'phpmyadmin', 'maD24101975');
+ }
+
+ catch (Exception $e)
+
+ {
+
+     die('Erreur : ' . $e->getMessage());
+
+ }
+
+ $request= $db->query('SELECT * FROM Personnage');
+  $perso= $request->fetchAll();
+ foreach ($perso as $key => $value) {
+   # code...
+
+ var_dump($perso);
+
+ echo $value['nom'], ' a ', $value['forcePerso'], ' de force, ', $value['degats'], ' de dégâts, ', $value['experience'], ' d\'expérience et est au niveau ', $value['niveau'];
+}
+
+
 
 ?>
 
