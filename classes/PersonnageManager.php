@@ -23,11 +23,17 @@ class PersonnagesManager
     // Préparation de la requête d'insertion.
     $q = $this->$_db->prepare('INSERT INTO Personnage(nom, forcePerso, degats, niveau, experience) VALUES (:nom, :forcePerso, :degats, :niveau, :experience');
 
-    $_q->execute(array(
+    // Assignation des valeurs pour le nom, la force, les dégâts, l'expérience et le niveau du personnage.
 
-    ));
+    //  Associe une valeur à un nom correspondant ou à un point d'interrogation (comme paramètre fictif) dans la requête SQL qui a été utilisé pour préparer la requête.
+    $q->bindValue(':nom', $perso->nom());
+    $q->bindValue(':forcePerso', $perso->forcePerso(), PDO::PARAM_INT);
+    $q->bindValue(':degats', $perso->degats(), PDO::PARAM_INT);
+    $q->bindValue(':niveau', $perso->niveau(), PDO::PARAM_INT);
+    $q->bindValue(':experience', $perso->experience(), PDO::PARAM_INT);
 
-
+    $q-
+    // Exécution de la requête.
 
   }
 
