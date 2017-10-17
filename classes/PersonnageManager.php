@@ -16,7 +16,10 @@ class PersonnagesManager
   }
 
 
-  public function add(Personnage $perso)
+    /**
+     * @param Personnage $perso
+     */
+    public function add(Personnage $perso)
 
   {
 
@@ -32,7 +35,7 @@ class PersonnagesManager
     $q->bindValue(':niveau', $perso->niveau(), PDO::PARAM_INT);
     $q->bindValue(':experience', $perso->experience(), PDO::PARAM_INT);
 
-    $q-
+    $q->execute();
     // Exécution de la requête.
 
   }

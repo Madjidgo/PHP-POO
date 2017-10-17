@@ -21,7 +21,10 @@ Une méthode setAdresse() doit permettre de modifier l’adresse de
 la personne.
 Créez
 des objets personne, et utilisez l’ensemble des méthodes.
+
+
 #Exercice 4 :
+------------
 Créez une classe nommée form représentant un formulaire HTML. Le
 constructeur doit créer le code d’en-tête du formulaire en
 utilisant les éléments <form> et <fieldset>.
