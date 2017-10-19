@@ -6,7 +6,7 @@ class Formulaire{
   public function __construct($action,$method){
 
 
-    $this->_form .= "<form action=$action method=$method>";
+    $this->_form .= '<form action="'.$action.'" method="'.$method.'">';
 
   }
   public function setH($h1){

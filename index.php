@@ -76,18 +76,19 @@ spl_autoload_register('chargerClasse');
  $request= $db->query('SELECT * FROM Personnage');
   $perso= $request->fetchAll(PDO::FETCH_ASSOC);
 
- foreach ($perso as $key => $value) {
+ foreach ($perso as $key => $value)
+  {
    # code...
 
 
   $personage = new Personnage($value);
-var_dump($personage);
+// var_dump($personage);
 
 
- echo $personage->nom(), ' a ', $personage->forcePerso(), ' de force, ',     $personage->degats(), ' de dégâts, ', $personage->experience(), ' d\'expérience et est au niveau ', $personage->niveau().'<br>';
-
+ echo $personage->nom(), ' a ', $personage->forcePerso(), ' de force, ',$personage->degats(), ' de dégâts, ', $personage->experience(), ' d\'expérience et est au niveau ', $personage->niveau().'<br>';
 
 }
+
 
 
 ?>

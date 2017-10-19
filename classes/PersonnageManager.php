@@ -21,6 +21,7 @@ class PersonnagesManager
      */
     public function add(Personnage $perso)
 
+
   {
 
     // Préparation de la requête d'insertion.
@@ -44,9 +45,10 @@ class PersonnagesManager
   public function delete(Personnage $perso)
 
   {
-
+    $q->$this->$_db->prepare('DELETE FROM Personnage WHERE id = :id');
     // Exécute une requête de type DELETE.
-
+    $q->bindValue(':id',$perso->id(), PDO::PARAM_INT);
+    $q->execute();
   }
 
 
@@ -55,6 +57,11 @@ class PersonnagesManager
   {
 
     // Exécute une requête de type SELECT avec une clause WHERE, et retourne un objet Personnage.
+    $q->$this->$_db->prepare('SELECT * FROM Personne WHERE id = :id');
+    $q->bindValue(':id',$perso->id(), PDO::PARAM_INT);
+    
+     $donnnes= $q->fetch(PDO::FETCH_ASSOC);
+     return new Personnage($donnnes);
 
   }
 
@@ -64,19 +71,33 @@ class PersonnagesManager
   {
 
     // Retourne la liste de tous les personnages.
-
+    $q->$this->$_db->query('SELECT * FROM Personnage  ORDER BY nom');
+      foreach ($donnees as $key => $value) {
+        
+       $personnage= $q->fetchAll(PDO::FETCH_ASSOC);
+       return new Personnage($value);
+      
+      }
+        
   }
 
 
   public function update(Personnage $perso)
 
   {
+    $q->$this->$_db->prepare('UPDATE Personnage SET nom=:nom, forcePerso=:forcePerso, degats=:degats, niveau=:niveau, experience=:experience');
 
     // Prépare une requête de type UPDATE.
 
     // Assignation des valeurs à la requête.
+    $q->bindValue(':nom', $perso->nom());
+    $q->bindValue(':forcePerso', $perso->forcePerso(), PDO::PARAM_INT);
+    $q->bindValue(':degats', $perso->degats(), PDO::PARAM_INT);
+    $q->bindValue(':niveau', $perso->niveau(), PDO::PARAM_INT);
+    $q->bindValue(':experience', $perso->experience(), PDO::PARAM_INT);
 
     // Exécution de la requête.
+       $q->execute();
 
   }
 
